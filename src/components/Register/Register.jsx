@@ -30,7 +30,7 @@ const Register = () => {
                         <label htmlFor="" className='block  mb-2' >Photo URL</label>
                         <input type="text" name="photo" className='input-control' placeholder='Enter photo url' required />
                     </div>
-                    <button className='w-full py-1 mt-5 hover:bg-slate-800 text-lg font-semibold text-white bg-slate-600 rounded'  >Register</button>
+                    <button className='w-full py-1 mt-5 hover:bg-slate-800 text-lg font-semibold text-white bg-slate-600 rounded' >Register</button>
                     <p className='mt-2 text-sm  text-slate-600 text-end'>Already have an account? <Link to="/login" className='text-orange-600'>Login</Link></p>
                 </form>
             </div>
