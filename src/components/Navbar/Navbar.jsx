@@ -20,18 +20,13 @@ const Navbar = () => {
             .catch(error => console.log(error.message))
     }
 
-
-
-
     const navItems = <>
-        <li><ActiveLink to="/about">About</ActiveLink></li>
         <li><ActiveLink to="/">Home</ActiveLink></li>
-        <li><ActiveLink to="/services">Services</ActiveLink></li>
+        <li><ActiveLink to="/alltoys">All Toys</ActiveLink></li>
+        {user && <li><ActiveLink to="/mytoys">My Toys</ActiveLink></li>}
+        {user && <li><ActiveLink to="/addtoy">Add Toys</ActiveLink></li>}
         <li><ActiveLink to="/blog">Blog</ActiveLink></li>
-        {
-            !user &&  <li><ActiveLink to="/login">Login</ActiveLink></li>
-        }
-
+        {!user && <li><ActiveLink to="/login">Login</ActiveLink></li>}
     </>
 
     return (
@@ -53,12 +48,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {user ? navItems : ''}
+                    {user && navItems}
                 </ul>
             </div>
             <div className="navbar-end">
                 {
-                    user ? '' : <div className="hidden lg:flex">
+                    !user && <div className="hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {navItems}
                         </ul>
