@@ -1,10 +1,52 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Register = () => {
+    const [passError, setPassError] = useState("");
+    const { createUser, updateUserData } = useContext(AuthContext);
 
-    const handleRegister =()=>{
+    const navigate = useNavigate();
 
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo_url = form.photo_url.value;
+
+        setPassError("");
+        if (password.length < 6) {
+            setPassError("At least 6 characters needed!!");
+            return;
+        }
+        if (email === "" || password === "") {
+            return;
+        }
+
+        createUser(email, password)
+            .then(result => {
+                const CreateUser = result.user;
+                console.log(CreateUser);
+                form.reset();
+                updateUserData(result.user, name, photo_url)
+                    .then(() => {
+                        console.log('user name updated ...');
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+                // toast("Registration Successful");
+                navigate("/", { replace: true });
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+        console.log(name, email, password, photo_url);
     }
 
     return (
@@ -24,11 +66,11 @@ const Register = () => {
                     <div className='mb-4'>
                         <label htmlFor="" className='block  mb-2'>Password</label>
                         <input type="password" name="password" className='input-control' placeholder='Enter your password' required />
-                        <small></small>
+                        <small>{passError}</small>
                     </div>
                     <div className='mb-4'>
                         <label htmlFor="" className='block  mb-2' >Photo URL</label>
-                        <input type="text" name="photo" className='input-control' placeholder='Enter photo url' required />
+                        <input type="text" name="photo_url" className='input-control' placeholder='Enter photo url' required />
                     </div>
                     <button className='w-full py-1 mt-5 hover:bg-slate-800 text-lg font-semibold text-white bg-slate-600 rounded' >Register</button>
                     <p className='mt-2 text-sm  text-slate-600 text-end'>Already have an account? <Link to="/login" className='text-orange-600'>Login</Link></p>
