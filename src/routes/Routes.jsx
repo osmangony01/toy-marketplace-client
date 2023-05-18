@@ -3,12 +3,16 @@ import MainLayout from "../components/Layout/MainLayout";
 import Home from "../components/Home/Home";
 import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
+import Random from "../components/Random/Random";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -25,6 +29,10 @@ const router = createBrowserRouter([
             
         ]
     },
+    {
+        path: '/random',
+        element: <Random></Random>
+    }
     
    
 ])
