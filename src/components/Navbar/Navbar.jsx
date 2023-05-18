@@ -1,16 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import ActiveLink from "../ActiveLink/ActiveLink";
 
 
 const Navbar = () => {
 
 
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                navigate("/", { replace: true });
+            })
             .catch(error => console.log(error.message))
     }
 
@@ -18,15 +22,15 @@ const Navbar = () => {
 
 
     const navItems = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
+        <li><ActiveLink to="/about">About</ActiveLink></li>
+        <li><ActiveLink to="/">Home</ActiveLink></li>
+        <li><ActiveLink to="/services">Services</ActiveLink></li>
+        <li><ActiveLink to="/blog">Blog</ActiveLink></li>
         {
-           user ? <li onClick={handleLogOut}><Link to="/">log out</Link></li>
-           : <li><Link to="/login">Login</Link></li> 
+            user ? <li onClick={handleLogOut}><Link>log out</Link></li>
+                : <li><ActiveLink to="/login">Login</ActiveLink></li>
         }
-        
+
     </>
 
     return (
