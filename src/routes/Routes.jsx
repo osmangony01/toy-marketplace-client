@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Random from "../components/Random/Random";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import AddToy from "../components/AddToy/AddToy";
+import AllToy from "../components/AllToy/AllToy";
 
 
 
@@ -30,8 +31,11 @@ const router = createBrowserRouter([
             {
                 path: '/addtoy',
                 element: <AddToy></AddToy>
+            },
+            {
+                path: '/alltoy',
+                element: <AllToy></AllToy>
             }
-            
         ]
     },
     {
