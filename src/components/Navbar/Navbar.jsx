@@ -24,13 +24,13 @@ const Navbar = () => {
         <li><ActiveLink to="/">Home</ActiveLink></li>
         <li><ActiveLink to="/alltoys">All Toys</ActiveLink></li>
         {user && <li><ActiveLink to="/mytoys">My Toys</ActiveLink></li>}
-        {user && <li><ActiveLink to="/addtoy">Add Toys</ActiveLink></li>}
+        <li><ActiveLink to="/addtoy">Add Toys</ActiveLink></li>
         <li><ActiveLink to="/blog">Blog</ActiveLink></li>
         {!user && <li><ActiveLink to="/login">Login</ActiveLink></li>}
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 px-10">
             <div className="navbar-start">
                 <div className="relative" onClick={() => setToggle(!toggle)}>
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

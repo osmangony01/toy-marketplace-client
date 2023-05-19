@@ -5,6 +5,7 @@ import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
 import Random from "../components/Random/Random";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
+import AddToy from "../components/AddToy/AddToy";
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/addtoy',
+                element: <AddToy></AddToy>
             }
             
         ]
