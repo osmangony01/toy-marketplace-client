@@ -7,6 +7,10 @@ import Random from "../components/Random/Random";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import AddToy from "../components/AddToy/AddToy";
 import AllToy from "../components/AllToy/AllToy";
+import ViewToy from "../components/ViewToy/ViewToy";
+import MyToy from "../components/MyToy/MyToy";
+
+
 
 
 
@@ -35,6 +39,15 @@ const router = createBrowserRouter([
             {
                 path: '/alltoy',
                 element: <AllToy></AllToy>
+            },
+            {
+                path: '/toy/:id',
+                element: <ViewToy></ViewToy>,
+                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+            },
+            {
+                path: '/mytoy',
+                element: <MyToy></MyToy>,
             }
         ]
     },
