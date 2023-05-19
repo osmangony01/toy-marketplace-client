@@ -9,6 +9,7 @@ import AddToy from "../components/AddToy/AddToy";
 import AllToy from "../components/AllToy/AllToy";
 import ViewToy from "../components/ViewToy/ViewToy";
 import MyToy from "../components/MyToy/MyToy";
+import UpdateToy from "../components/MyToy/UpdateToy";
 
 
 
@@ -43,11 +44,16 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <ViewToy></ViewToy>,
-                loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             },
             {
                 path: '/mytoy',
                 element: <MyToy></MyToy>,
+            },
+            {
+                path: '/updateMyToy/:id',
+                element: <UpdateToy></UpdateToy>,
+                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
             }
         ]
     },
@@ -55,8 +61,8 @@ const router = createBrowserRouter([
         path: '/random',
         element: <Random></Random>
     }
-    
-   
+
+
 ])
 
 export default router;
