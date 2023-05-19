@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import MyToyRow from "./MyToyRow";
+import Swal from "sweetalert2";
 
 
 const MyToy = () => {
@@ -14,6 +15,38 @@ const MyToy = () => {
             .then(data => setMyToy(data));
 
     }, [user])
+
+    const handleDeleteToy = (id) => {
+        console.log('delete');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/toy/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your data has been deleted.',
+                                'success'
+                            )
+                            const remaining = myToy.filter(toy => toy._id !== id);
+                            setMyToy(remaining);
+                        }
+                    })
+            }
+        })
+    }
 
     console.log(myToy);
     return (
@@ -34,7 +67,12 @@ const MyToy = () => {
                     </thead>
                     <tbody>
                         {
-                            myToy.map(toy => <MyToyRow key={toy._id} toy={toy}></MyToyRow>)
+                            myToy.map(toy => <MyToyRow 
+                            key={toy._id} 
+                            toy={toy}
+                            handleDeleteToy={handleDeleteToy}
+                            >
+                            </MyToyRow>)
                         }
                     </tbody>
 
