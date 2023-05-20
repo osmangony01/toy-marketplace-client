@@ -10,7 +10,10 @@ const Banner = () => {
     return (
         <div className="carousel w-full object-contain">
             <div id="slide1" className="carousel-item relative w-full ">
+               
+               
                 <img src={img1} className="w-full" />
+                     
                 <div className="absolute h-full left-0 top-0 right-0 bg-gradient-to-r from-[#151515] via-[rgba(21, 21, 21, 0)]">
                     <div className='text-white space-y-5 pl-24 pt-24'>
                         <h2 className='text-5xl font-bold' >Affordable <br /> Price For Car <br /> Servicing</h2>
