@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ToyRow from "./ToyRow";
 import Banner from "../Home/Banner";
+import useTitle from "../../hooks/useTitle";
 
 
 const AllToy = () => {
@@ -10,6 +11,8 @@ const AllToy = () => {
 
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+
+    useTitle('AllToy');
 
     useEffect(() => {
         fetch(`http://localhost:5000/toys`)

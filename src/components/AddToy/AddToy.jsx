@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 
 const AddToy = () => {
@@ -12,7 +13,8 @@ const AddToy = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedSubCategory, setSelectedSubCategory] = useState('');
 
-
+    useTitle('AddToy');
+    
     const { user } = useContext(AuthContext);
 
 

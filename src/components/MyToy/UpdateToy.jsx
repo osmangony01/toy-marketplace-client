@@ -1,8 +1,10 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 
 const UpdateToy = () => {
+    useTitle('UpdateToy');
 
     const toy = useLoaderData();
     const { _id, categoryId, subCategoryId, toyName, price, rating, quantity, photoURL, sellerName, sellerEmail, details } = toy;
@@ -38,7 +40,7 @@ const UpdateToy = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
-                    navigate("/mytoy", {replace:true});
+                    navigate("/mytoy", { replace: true });
                 }
 
             })

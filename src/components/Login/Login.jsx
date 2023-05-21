@@ -2,8 +2,12 @@ import { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+
+    useTitle('Login');
+
     const [passShow, setPassShow] = useState(true);
     const [error, setError] = useState("");
 
