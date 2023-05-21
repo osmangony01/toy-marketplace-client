@@ -15,7 +15,7 @@ const AllToy = () => {
     useTitle('AllToy');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys`)
+        fetch(`https://toys-server-side.vercel.app/toys`)
             .then(res => res.json())
             .then(data => {
                 setDuplicateToy(data)

@@ -14,15 +14,14 @@ const ViewToy = () => {
 
     return (
         <div>
-            {/* <Banner></Banner> */}
             <div className="py-20 bg-base-200">
-                <h2 className="text-4xl text-center mb-10 text-orange-500 font-bold">Toy Detail</h2>
+                <h2 className="text-4xl text-center mb-10 text-orange-500 font-bold">Toy Details</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 bg-white shadow-xl w-3/4 mx-auto gap-8 p-10 rounded-md">
                     <div>
                         <img src={photoURL} alt=""  className="w-full"/>
                     </div>
                     <div>
-                        <p className="py-1"><span className="font-bold">Toy Name: </span> {toyName}</p>
+                        <p className="py-1 font-bold text-2xl text-blue-500"> {toyName}</p>
                         <p className="py-1"><span className="font-bold">Seller Name: </span> {sellerName}</p>
                         <p className="py-1"><span className="font-bold">Seller Email: </span> {sellerEmail}</p>
                         <p className="py-1"><span className="font-bold">Price: </span>$ {price}</p>

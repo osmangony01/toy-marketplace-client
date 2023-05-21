@@ -19,13 +19,13 @@ const AddToy = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toyCategory`)
+        fetch(`https://toys-server-side.vercel.app/toyCategory`)
             .then(res => res.json())
             .then(data => setToyCategory(data))
     }, [])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toySubCategory`)
+        fetch(`https://toys-server-side.vercel.app/toySubCategory`)
             .then(res => res.json())
             .then(data => setToySubCategory(data))
     }, [])
@@ -37,7 +37,7 @@ const AddToy = () => {
         setSelectedCategory(event.target.value);
         const id = event.target.value;
         console.log(id)
-        const url = `http://localhost:5000/toySubCategory/${id}`;
+        const url = `https://toys-server-side.vercel.app/toySubCategory/${id}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -70,7 +70,7 @@ const AddToy = () => {
         
         const newToy = {categoryId, subCategoryId, toyName, price, rating, quantity, photoURL, sellerName, sellerEmail, details};
         console.log(newToy);
-        fetch('http://localhost:5000/addtoy', {
+        fetch('https://toys-server-side.vercel.app/addtoy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -98,7 +98,7 @@ const AddToy = () => {
             <div className='w-full px-5 mx-auto md:w-3/4 lg:w-2/3 my-10'>
                 <h2 className='text-center text-3xl text-orange-500 font-bold mb-10'>Add New Toy</h2>
                 <form action="" onSubmit={handleAddToy}>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Category</label>
                             <div>
@@ -129,7 +129,7 @@ const AddToy = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Toy Name</label>
                             <div>
@@ -143,7 +143,7 @@ const AddToy = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Rating</label>
                             <div>
@@ -169,7 +169,7 @@ const AddToy = () => {
                             <textarea type="text" placeholder='Enter details' name="details" className='input-control' rows="4"></textarea>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Seller Name</label>
                             <div>
@@ -184,7 +184,7 @@ const AddToy = () => {
                         </div>
                     </div>
                     <div>
-                        <button type='submit' className="btn btn-block my-4 bg-purple-500 hover:bg-purple-800 border-0">Add A Toy</button>
+                        <button type='submit' className="btn btn-block my-8 bg-purple-500 hover:bg-purple-800 border-0">Add A Toy</button>
                     </div>
                 </form>
             </div>

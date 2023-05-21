@@ -44,16 +44,16 @@ const router = createBrowserRouter([
             {
                 path: '/toy/:id',
                 element: <PrivateRoute><ViewToy></ViewToy></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toys-server-side.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/mytoy',
-                element: <MyToy></MyToy>,
+                element: <PrivateRoute><MyToy></MyToy></PrivateRoute>,
             },
             {
                 path: '/updateMyToy/:id',
                 element: <UpdateToy></UpdateToy>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+                loader: ({ params }) => fetch(`https://toys-server-side.vercel.app/toy/${params.id}`)
             },
             {
                 path: '/blog',

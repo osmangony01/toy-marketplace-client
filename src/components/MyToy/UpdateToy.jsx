@@ -21,9 +21,9 @@ const UpdateToy = () => {
         const details = from.details.value;
 
         const updateToy = { _id, categoryId, subCategoryId, toyName, price, rating, quantity, photoURL, sellerName, sellerEmail, details };
-        console.log(updateToy);
+        //console.log(updateToy);
 
-        fetch(`http://localhost:5000/updateToy/${_id}`, {
+        fetch(`https://toys-server-side.vercel.app/updateToy/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -46,14 +46,14 @@ const UpdateToy = () => {
             })
 
     }
-    console.log(toy)
+    //console.log(toy)
     return (
-        <div className="bg-white">
+        <div className="bg-white mb-10">
             <div className='w-full px-5 mx-auto md:w-3/4 lg:w-2/3'>
-                <h2 className='text-center text-xl'>Update A Toy</h2>
+                <h2 className='text-center text-3xl text-orange-500 font-bold my-10'>Update A Toy</h2>
                 <form action="" onSubmit={handleUpdateToy}>
 
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Toy Name</label>
                             <div>
@@ -67,7 +67,7 @@ const UpdateToy = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Rating</label>
                             <div>
@@ -93,7 +93,7 @@ const UpdateToy = () => {
                             <textarea type="text" placeholder='Enter details' name="details" className='input-control' defaultValue={details} rows="4"></textarea>
                         </div>
                     </div>
-                    <div className='grid grid-cols-2 gap-5 mt-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4'>
                         <div>
                             <label htmlFor="" className='pb-2 block'>Seller Name</label>
                             <div>
@@ -108,7 +108,7 @@ const UpdateToy = () => {
                         </div>
                     </div>
                     <div>
-                        <button type='submit' className="btn btn-block my-4 bg-purple-500 hover:bg-purple-800 border-0">Update Toy</button>
+                        <button type='submit' className="btn btn-block my-8 bg-purple-500 hover:bg-purple-800 border-0">Update Toy</button>
                     </div>
                 </form>
             </div>

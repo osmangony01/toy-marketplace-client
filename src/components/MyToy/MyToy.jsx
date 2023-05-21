@@ -10,14 +10,11 @@ const MyToy = () => {
     useTitle('MyToys');
 
     const [myToy, setMyToy] = useState([]);
+    const [sortedToy, setSortedToy] = useState([]);
     const { user } = useContext(AuthContext);
 
-    const [sortedToy, setSortedToy] = useState([]);
-
-
-
     useEffect(() => {
-        fetch(`http://localhost:5000/mytoy?email=${user?.email}`)
+        fetch(`https://toys-server-side.vercel.app/mytoy?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyToy(data);
@@ -27,7 +24,7 @@ const MyToy = () => {
     }, [user])
 
     const handleSortedToyToPrice = () => {
-        const url = `http://localhost:5000/toyToPrice?email=${user?.email}`;
+        const url = `https://toys-server-side.vercel.app/toyToPrice?email=${user?.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setMyToy(data))
@@ -45,7 +42,7 @@ const MyToy = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toy/${id}`, {
+                fetch(`https://toys-server-side.vercel.app/toy/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -65,9 +62,9 @@ const MyToy = () => {
         })
     }
 
-    console.log(myToy);
+    //console.log(myToy);
     return (
-        <div className="w-3/4 mx-auto my-10">
+        <div className="w-3/4 mx-auto my-16">
             <h1 className="text-center text-3xl text-orange-500 font-bold">All My Toy</h1>
             <p className="text-end mb-5">
                 <button className="btn btn-primary" onClick={handleSortedToyToPrice}>Sort By Price</button>

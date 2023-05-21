@@ -8,7 +8,7 @@ const ToyRow = ({ toy }) => {
     const { _id, subCategoryId, toyName, price, quantity, sellerName } = toy
 
     useEffect(() => {
-        const url = `http://localhost:5000/subCategory/${subCategoryId}`;
+        const url = `https://toys-server-side.vercel.app/subCategory/${subCategoryId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSubCategory(data.subCategoryName))
