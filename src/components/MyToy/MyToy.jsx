@@ -29,6 +29,7 @@ const MyToy = () => {
             .then(res => res.json())
             .then(data => setMyToy(data))
     }
+
     const handleDeleteToy = (id) => {
         console.log('delete');
         Swal.fire({
@@ -65,7 +66,9 @@ const MyToy = () => {
     return (
         <div className="w-3/4 mx-auto my-10">
             <h1 className="text-center text-3xl text-orange-500 font-bold">All My Toy</h1>
-            <p className="text-end mb-5"><button className="btn btn-primary" onClick={handleSortedToyToPrice}>Sort By Price</button></p>
+            <p className="text-end mb-5">
+                <button className="btn btn-primary" onClick={handleSortedToyToPrice}>Sort By Price</button>
+            </p>
             <div className="overflow-x-auto w-full my-10">
                 <table className="table  table-compact w-full">
                     <thead>
