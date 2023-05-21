@@ -8,7 +8,7 @@ const ViewToy = () => {
     useTitle('DetailToy');
     
     const getToy = useLoaderData();
-    console.log(getToy)
+    //console.log(getToy)
     const { toyName, price, rating, quantity, photoURL, sellerName, sellerEmail, details } = getToy;
 
 

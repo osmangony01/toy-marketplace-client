@@ -37,8 +37,8 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     {
-                        toggle && <div className="absolute left-0 top-10 lg:hidden">
-                            <ul className="menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        toggle && <div className="absolute left-0 top-10 lg:hidden z-20">
+                            <ul className="menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-md w-52">
                                 {navItems}
                             </ul>
                         </div>
@@ -66,7 +66,7 @@ const Navbar = () => {
                     user && <div className="relative" onClick={() => setUserControl(!userControl)}>
                         <label className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                {user.photoURL ? <img src={user.photoURL} alt="user" className='' title={user.displayName} />
+                                {user.photoURL ? <img src={user.photoURL} alt="" className='' title={user.displayName} />
                                     : <span className='first-line:' title={user.displayName}><FaUserCircle size={40}></FaUserCircle></span>}
                             </div>
                         </label>

@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="absolute h-full left-0 top-0 right-0 bg-[#151515] bg-opacity-50">
             <div className=' absolute  w-[2/3] md:w-[2/4] text-white space-y-5 top-10 left-12 right-12 md:right-0  md:left-[calc(50%-300px)] md:top-[calc(50%-150px)]'>
                 <h2 className='text-lg font-bold sm:text-2xl md:text-5xl' >Engaging Educational <br />Toys for Curious Minds</h2>
-                <p className=''>Unleash curiosity and foster knowledge with interactive toys that inspire exploration and ignite a love for learning</p>
+                <p className=''>Unleash curiosity and foster knowledge with interactive toys that inspire <br /> exploration and ignite a love for learning</p>
                 <div>
                     <button className="btn btn-primary bg-orange-600 mr-4 border-0">Discover More</button>
                 </div>
@@ -26,7 +26,7 @@ const Banner = () => {
             <div className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px]">
                 <Carousel className="">
                     <div className="relative">
-                        <img src={img1} alt="..." className="h-[200px] sm:h-[300px] md:h-[400px] xl:h-[500px] w-full"/>
+                        <img src={img1} alt="..." className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px] w-full"/>
                         {bannerContent}
                     </div>
                     <div className="relative">

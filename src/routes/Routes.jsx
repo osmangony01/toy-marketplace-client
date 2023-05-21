@@ -3,7 +3,6 @@ import MainLayout from "../components/Layout/MainLayout";
 import Home from "../components/Home/Home";
 import Register from "../components/Register/Register";
 import Login from "../components/Login/Login";
-import Random from "../components/Random/Random";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import AddToy from "../components/AddToy/AddToy";
 import AllToy from "../components/AllToy/AllToy";
@@ -35,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addtoy',
-                element: <AddToy></AddToy>
+                element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
             },
             {
                 path: '/alltoy',
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/updateMyToy/:id',
-                element: <UpdateToy></UpdateToy>,
+                element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://toys-server-side.vercel.app/toy/${params.id}`)
             },
             {
@@ -60,13 +59,7 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
-    },
-    {
-        path: '/random',
-        element: <Random></Random>
     }
-
-
 ])
 
 export default router;

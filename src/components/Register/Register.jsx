@@ -31,7 +31,7 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const CreateUser = result.user;
-                console.log(CreateUser);
+                //console.log(CreateUser);
                 form.reset();
                 updateUserData(result.user, name, photo_url)
                     .then(() => {
@@ -40,7 +40,6 @@ const Register = () => {
                     .catch(error => {
                         console.log(error.message);
                     })
-                // toast("Registration Successful");
                 navigate("/", { replace: true });
 
             })
@@ -48,7 +47,7 @@ const Register = () => {
                 console.log(error.message);
             })
 
-        console.log(name, email, password, photo_url);
+        //console.log(name, email, password, photo_url);
     }
 
     return (

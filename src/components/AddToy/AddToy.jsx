@@ -30,19 +30,19 @@ const AddToy = () => {
             .then(data => setToySubCategory(data))
     }, [])
 
-    console.log(toyCategory);
-    console.log(toySubCategory);
+    //console.log(toyCategory);
+    //console.log(toySubCategory);
 
     const handleSelectedCategory = (event) => {
         setSelectedCategory(event.target.value);
         const id = event.target.value;
-        console.log(id)
+        //console.log(id)
         const url = `https://toys-server-side.vercel.app/toySubCategory/${id}`;
-        console.log(url);
+        //console.log(url);
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                //console.log(data);
                 setGetSubitem(data);
             })
     }
@@ -69,7 +69,7 @@ const AddToy = () => {
         const details = from.details.value;
         
         const newToy = {categoryId, subCategoryId, toyName, price, rating, quantity, photoURL, sellerName, sellerEmail, details};
-        console.log(newToy);
+        //console.log(newToy);
         fetch('https://toys-server-side.vercel.app/addtoy', {
             method: 'POST',
             headers: {
@@ -79,7 +79,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                //console.log(data);
                 if(data.insertedId){
                     Swal.fire({
                         title: 'Success!',
@@ -90,7 +90,6 @@ const AddToy = () => {
                 }
                 from.reset();
             })
-
     }
 
     return (

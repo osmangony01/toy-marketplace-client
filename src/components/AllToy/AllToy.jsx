@@ -25,21 +25,15 @@ const AllToy = () => {
     }, [])
 
     useEffect(() => {
-
         if (selectedData === "all") {
             setSearchResults(duplicateToy);
         }
         if (selectedData === 'limit20') {
             setSearchResults(duplicateToy.slice(0, 20));
         }
-
-
-
-
     }, [selectedData])
 
-    console.log(toys);
-
+    //console.log(toys);
 
     const handleInputChange = (e) => {
         const search = e.target.value
@@ -48,7 +42,6 @@ const AllToy = () => {
             setSearchResults(toys);
         }
     };
-
 
     const handleSelectData = (e) => {
         setSelectedData(e.target.value);
@@ -66,12 +59,7 @@ const AllToy = () => {
             );
             setSearchResults(filteredResults);
         }
-
-
     }
-
-
-
 
     return (
         <div>
@@ -99,6 +87,7 @@ const AllToy = () => {
                     <table className="table w-full">
                         <thead>
                             <tr>
+                                <th>SN</th>
                                 <th>Seller</th>
                                 <th>Toy Name</th>
                                 <th>Sub Category</th>
@@ -110,10 +99,13 @@ const AllToy = () => {
                         <tbody>
                             {searchResults.length > 0 ? <>
                                 {
-                                    searchResults.map(toy => <ToyRow
-                                        key={toy._id}
-                                        toy={toy}>
-                                    </ToyRow>)
+                                    searchResults.map((toy, index) => {
+                                        return <ToyRow
+                                            key={toy._id}
+                                            index={index}
+                                            toy={toy}>
+                                        </ToyRow>
+                                    })
                                 }
                             </>
                                 : <p className="text-red-500 text-center py-2 font-bold">No results found</p>

@@ -11,7 +11,7 @@ const Login = () => {
     const [passShow, setPassShow] = useState(true);
     const [error, setError] = useState("");
 
-    const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -31,45 +31,33 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                //console.log(loggedUser);
                 form.reset();
                 // navigate("/", { replace: true });
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error.message);
+                //console.log(error.message);
                 setError("Incorrect Email or Password!");
             })
-        console.log(email, password);
+       // console.log(email, password);
     }
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                //console.log(loggedUser);
                 // navigate("/", { replace: true });
                 navigate(from, { replace: true });
             })
             .catch(error => {
                 setError("Incorrect Email or Password!");
-                console.log(error.message);
+                //console.log(error.message);
             })
     }
 
-    const handleGithubSignIn = () => {
-        signInWithGithub()
-            .then(result => {
-                const loggedUser = result.user;
-                 console.log(loggedUser);
-                // navigate("/", { replace: true });
-                navigate(from, { replace: true });
-            })
-            .catch(error => {
-                setError("Incorrect Email or Password!");
-                console.log(error.message);
-            })
-    }
+    
 
     return (
         <div className='pt-10 pb-16 bg-slate-100'>
@@ -93,7 +81,6 @@ const Login = () => {
                     <p className='mt-2 text-sm  text-slate-600 text-end'>You don't have an account? <Link to="/register" className='text-orange-600'>Register</Link></p>
                     <div className='mt-4'>
                     <button type="submit" onClick={handleGoogleSignIn} className='other-login-btn'><FaGoogle></FaGoogle>Continue with Google</button>
-                    <button type="submit" onClick={handleGithubSignIn} className='other-login-btn mt-2'><FaGithub></FaGithub>Continue with Github</button>
                     </div>
                 </form>
             </div>

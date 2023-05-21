@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const ToyRow = ({ toy }) => {
+const ToyRow = ({ toy, index }) => {
 
     const [subCategory, setSubCategory] = useState('');
     const { _id, subCategoryId, toyName, price, quantity, sellerName } = toy
@@ -13,9 +13,11 @@ const ToyRow = ({ toy }) => {
             .then(res => res.json())
             .then(data => setSubCategory(data.subCategoryName))
     }, [])
+    //console.log(index);
 
     return (
         <tr>
+            <td>{index+1}</td>
             <td>{sellerName}</td>
             <td>{toyName}</td>
             <td>{subCategory}</td>
