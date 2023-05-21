@@ -11,6 +11,8 @@ import ViewToy from "../components/ViewToy/ViewToy";
 import MyToy from "../components/MyToy/MyToy";
 import UpdateToy from "../components/MyToy/UpdateToy";
 import PrivateRoute from "./PrivateRoute";
+import Blog from "../components/Blog/Blog";
+
 
 
 const router = createBrowserRouter([
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
                 path: '/updateMyToy/:id',
                 element: <UpdateToy></UpdateToy>,
                 loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     },

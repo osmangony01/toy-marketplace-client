@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
 
 
-const ShopCard = ({ c }) => {
-    const {} = c;
+const ShopCard = ({ sc }) => {
+    const { _id, toyName, price, rating, photoURL } = sc;
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
-                <img src="https://i.ibb.co/T8jQgpP/Robotic-Soccer-Set.jpg" className="w-full h-[180px]" alt="Shoes" />
+                <img src={photoURL} className="w-full h-[180px]" alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">{toyName}</h2>
+                <p>Price: $ <span>{price}</span></p>
+                <p>Rating: <span>{rating}</span></p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <Link to={`/toy/${_id}`}> <button className="btn  btn-primary">View Details</button></Link>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@ const Navbar = () => {
         <li><ActiveLink to="/">Home</ActiveLink></li>
         <li><ActiveLink to="/alltoy">All Toys</ActiveLink></li>
         {user && <li><ActiveLink to="/mytoy">My Toys</ActiveLink></li>}
-        <li><ActiveLink to="/addtoy">Add Toys</ActiveLink></li>
+        {user && <li><ActiveLink to="/addtoy">Add Toys</ActiveLink></li>}
         <li><ActiveLink to="/blog">Blog</ActiveLink></li>
         {!user && <li><ActiveLink to="/login">Login</ActiveLink></li>}
     </>
@@ -44,7 +44,10 @@ const Navbar = () => {
                         </div>
                     }
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <div className="flex items-center">
+                    <img src="/images/logo2.png" alt="asdf" />
+                    <a className="btn btn-ghost normal-case text-xl md:text-2xl">PlaySmart</a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -68,7 +71,7 @@ const Navbar = () => {
                             </div>
                         </label>
                         {
-                            userControl && <div className="absolute right-0 top-10">
+                            userControl && <div className="absolute right-0 top-10 z-10">
                                 <ul className="menu menu-compact mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><span>{user.email}</span></li>
                                     <li onClick={handleLogOut}><a>Logout</a></li>

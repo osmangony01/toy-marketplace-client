@@ -12,7 +12,7 @@ const Contact = () => {
                     <div className="pt-4"> We are dedicated to providing exceptional customer service, assisting you with any inquiries or concerns regarding our wide range of learning and engineering toys. Our team of experts is here to guide you through the selection process, offer recommendations, and ensure your educational journey is filled with excitement and growth. We value your feedback and are committed to creating an extraordinary experience for you. Get in touch with us today and let's embark on an educational adventure together!</div>
                 </div>
 
-                <div>
+                <div data-aos="fade-left">
                     <h2 className='text-lg font-bold mb-5'>Send Us A Message</h2>
                     <div className='grid grid-cols-2 gap-5'>
                         <input type="text" placeholder='First Name' className='w-full px-3 py-2 border-slate-300 rounded mb-5' />

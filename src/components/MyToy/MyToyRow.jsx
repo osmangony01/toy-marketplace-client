@@ -16,8 +16,8 @@ const MyToyRow = ({ toy, handleDeleteToy }) => {
 
     return (
         <tr>
-            <td><img className="w-[200px] h-[150px] rounded-md" src={photoURL} alt="" /></td>
-            <td>{sellerName}</td>
+            <td className=""><img className="w-[200px] h-[150px] rounded-md" src={photoURL} alt="" /></td>
+            <td className="">{sellerName}</td>
             <td>{toyName}</td>
             <td>{subCategory}</td>
             <td>$ {price}</td>

@@ -53,7 +53,7 @@ const MyToy = () => {
         <div className="w-3/4 mx-auto">
             <h1 className="text-center text-lg">All My Toy</h1>
             <div className="overflow-x-auto w-full my-10">
-                <table className="table w-full">
+                <table className="table  table-compact w-full">
                     <thead>
                         <tr>
                             <th>Photo</th>

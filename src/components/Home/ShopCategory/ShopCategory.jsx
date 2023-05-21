@@ -35,11 +35,6 @@ const ShopCategory = () => {
             })
     }, [])
 
-    // const handleCategory = id => {
-    //     // const seletedSubCategory = toySubCategory.filter(c => id === c.subCategoryId)
-    //     // setSubToyCategory(seletedSubCategory);
-    //     // console.log(toySubCategory);
-    // }
 
     const arrangeCategoryValue = (toySubCategory) => {
         const result = [];
@@ -93,7 +88,7 @@ const ShopCategory = () => {
     return (
 
         <div className='bg-[#e5e1e1] py-20'>
-        <h2 className='text-3xl font-bold text-center mb-8'>Shop By Category</h2>
+            <h2 className='text-3xl font-bold text-center mb-8'>Shop By Category</h2>
             <div className='bg-gray-100 w-3/4 mx-auto py-5 rounded  px-5'>
                 {/* <Tabs forceRenderTabPanel defaultIndex={1} >
                     <TabList>
@@ -169,37 +164,45 @@ const ShopCategory = () => {
                     </TabPanel>
                 </Tabs> */}
 
-               <div className=''>
-               <Tabs forceRenderTabPanel defaultIndex={1} className=" mt-1">
-                    <TabList>
+                <div className=''>
+                    <Tabs forceRenderTabPanel defaultIndex={1} className=" mt-1">
+                        <TabList>
+                            {
+                                toyCategory.map(c => <Tab key={c._id}>{c.categoryName}</Tab>)
+                            }
+
+                        </TabList>
                         {
-                            toyCategory.map(c => <Tab key={c._id}>{c.categoryName}</Tab>)
-                        }
-
-                    </TabList>
-
-                    {
-                        arrangeCategory.map(inner => <TabPanel key={inner.index}>
-                            <Tabs forceRenderTabPanel>
-                                <TabList>
-                                    {
-                                        inner.map(c => <Tab key={c._id} onClick={() => handleSelectedToy(c.subCategoryId)}>{c.subCategoryName}</Tab>)
-                                    }
-                                </TabList>
-                                {
-                                    inner.map(c => <TabPanel key={c.index}>
-                                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2'>
+                            arrangeCategory.map(inner => <TabPanel key={inner.index}>
+                                <Tabs forceRenderTabPanel>
+                                    <TabList>
                                         {
-                                            selectedCategory.map(sc => <ShopCard key={selectedCategory._id} sc={sc}></ShopCard>)
+                                            inner.map(c => <Tab
+                                                key={c._id}
+                                                onClick={() => handleSelectedToy(c.subCategoryId)}
+                                                >
+                                                {c.subCategoryName}
+                                                </Tab>)
                                         }
-                                    </div>
-                                    </TabPanel>)
-                                }
-                            </Tabs>
-                        </TabPanel>)
-                    }
-                </Tabs>
-               </div>
+                                    </TabList>
+                                    {
+                                        inner.map(c => <TabPanel
+                                            key={c._id}>
+                                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2'>
+                                                {
+                                                    selectedCategory.map(sc => <ShopCard
+                                                        key={sc._id}
+                                                        sc={sc}>
+                                                    </ShopCard>)
+                                                }
+                                            </div>
+                                        </TabPanel>)
+                                    }
+                                </Tabs>
+                            </TabPanel>)
+                        }
+                    </Tabs>
+                </div>
             </div>
         </div>
     );

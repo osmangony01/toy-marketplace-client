@@ -164,7 +164,7 @@ const AddToy = () => {
                     <div className="mt-4">
                         <label htmlFor="" className='pb-2 block'>Details</label>
                         <div>
-                            <input type="text" placeholder='Enter details' name="details" className='input-control' />
+                            <textarea type="text" placeholder='Enter details' name="details" className='input-control' rows="4"></textarea>
                         </div>
                     </div>
                     <div className='grid grid-cols-2 gap-5 mt-4'>
@@ -177,7 +177,7 @@ const AddToy = () => {
                         <div>
                             <label htmlFor="" className='pb-2 block'>Seller Email</label>
                             <div>
-                                <input type="text" placeholder='seller email' name="seller_email" className='input-control' defaultValue={user?.email} />
+                                <input type="text" placeholder='seller email' name="seller_email" className='input-control' defaultValue={user?.email} disabled/>
                             </div>
                         </div>
                     </div>

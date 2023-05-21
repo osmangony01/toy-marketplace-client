@@ -1,7 +1,7 @@
 import Banner from "./Banner";
 import Contact from "./Contact";
 import Gallery from "./Gallery";
-import Learning from "./ShopCategory/Learning";
+import Learning from "./Learning";
 import ShopCategory from "./ShopCategory/ShopCategory";
 
 
