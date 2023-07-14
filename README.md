@@ -1,13 +1,18 @@
+## PlaySmart
+The PlaySmart website is an educational and learning toys sale platform.
+
 **Features of PlaySmart**
-- User Account
+- User Authentication
+- User Account Management
 - Blog
 - Toy Categories
 - Toy Details and Search
-- CURD Operation
+- Toy Management 
 - API and Routing with Express JS
-- Database Integration with MongoDB
-- Firebase Integration
+- CRUD operation with MongoDB
 
+**Technology Used:** ReactJS, NodeJS, ExpressJS, MongoDB, Firebase, TailwindCSS
 
-**Live site link:**   
-https://marketplace-toy.web.app/
+**Live site link:**   https://marketplace-toy.web.app/
+
+**Server-side Code link:** https://github.com/osmangony01/toy-marketplace-server
