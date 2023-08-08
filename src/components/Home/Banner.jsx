@@ -23,10 +23,10 @@ const Banner = () => {
 
     return (
         <div>
-            <div className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px]">
-                <Carousel className="">
-                    <div className="relative">
-                        <img src={img1} alt="..." className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px] w-full"/>
+            <div className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px] brd">
+                <Carousel className="brd">
+                    <div className="relative brd">
+                        <img src={img1} alt="..." className="h-[280px] sm:h-[300px] md:h-[400px] xl:h-[500px] w-full brd"/>
                         {bannerContent}
                     </div>
                     <div className="relative">
